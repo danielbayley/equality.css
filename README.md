@@ -1,3 +1,6 @@
+<img title="Equality" alt="E3" src="logo.svg" align="right" width="160vw">
+<br>
+
 Equality
 ========
 Minimal [CSS] [reset] for browser equality. _[UnoCSS]_ [preset] included.

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="192" viewBox="0 0 320 192">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --black: #1f2328;
+      --white: #f0f6fc;
+      --stroke-width: 24
+    }
+    rect { fill: light-dark(var(--black), var(--white)) }
+    mask rect { fill: white }
+    mask path { stroke: black }
+
+    /* FIXME: https://bugs.webkit.org/show_bug.cgi?id=199134 */
+    _::-webkit-full-page-media, _:future, :root > rect {
+      fill: white;
+      mix-blend-mode: difference
+    }
+
+    path {
+      stroke-width: var(--stroke-width);
+      stroke-linecap: square
+    }
+    path:nth-of-type(2) {
+      stroke-width: calc((var(--stroke-width) / 1.5) * 1px)
+    }
+  
+    @media (prefers-color-scheme: dark) {
+      path:not(:nth-of-type(2)) { stroke-width: calc((var(--stroke-width) / 1.5) * 1.75px) }
+    }
+  </style>
+  <defs>
+    <mask id="mask">
+      <rect width="100%" height="100%"/>
+      <path d="M64 64h192"/>
+      <path d="m198.8 0-77.6 192"/>
+      <path d="M64 128h192"/>
+    </mask>
+  </defs>
+  <rect width="100%" height="100%" mask="url(#mask)"/>
+</svg>
